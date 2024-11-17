@@ -33,6 +33,10 @@ def generate_and_email_documents(excel_file, output_folder, template):
         # Save the Word document
         file_name = f"Document_{index + 1}.docx"
         file_path = os.path.join(output_folder, file_name)
+        file_path = os.path.abspath(file_path)  # Convert to absolute path
+
+        print(f"Attempting to open file: {file_path}")
+
         doc.save(file_path)
         print(f"Generated: {file_name}")
 
